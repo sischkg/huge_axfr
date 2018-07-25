@@ -15,7 +15,7 @@ Install packages for compiling huge_axfr_server.
 
 ```
 # yum install epel-release
-# yum install gcc-c++ cmake boost-devel wget perl cmake git
+# yum install gcc-c++ cmake boost-devel wget perl cmake git gtest-devel
 
 # wget https://www.openssl.org/source/openssl-1.1.0h.tar.gz
 # tar xzf openssl-1.1.0h.tar.gz
@@ -25,14 +25,17 @@ Install packages for compiling huge_axfr_server.
 # make install
 # echo /usr/local/lib64 > /etc/ld.so.conf.d/local.conf
 # ldconfig
+
+# wget https://cmake.org/files/v3.10/cmake-3.10.0-Linux-x86_64.sh
+# sh cmake-3.10.0-Linux-x86_64.sh --skip-license --prefix=/usr/local
 ```
 
-Compile huge_axfr_server.
+Compile huge_axfr.
 
 ```
 $ git clone https://github.com/sischkg/huge_axfr.git
 $ cd huge_axfr
-$ cmake .
+$  OPENSSL_ROOT_DIR=/usr/local/ssl cmake .
 $ make
 ```
 
