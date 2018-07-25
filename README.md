@@ -39,7 +39,7 @@ $  OPENSSL_ROOT_DIR=/usr/local/ssl cmake .
 $ make
 ```
 
-Start axfr_server which generates infinit zone data.
+Start axfr_server which generates infinit size zone data.
 
 ```
 $ ./bin/axfr_server --port 10053
@@ -66,7 +66,7 @@ www.example.com.        600     IN      A       192.168.0.1
 ```
 
 
-Start axfr_server which generates finit zone data.
+Start axfr_server which generates finit size zone data.
 
 ```
 $ ./bin/axfr_server --port 10053 -c 1000
