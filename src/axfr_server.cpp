@@ -147,7 +147,8 @@ private:
         response.pushQuestionSection( question );
 
         std::ostringstream os;
-        os << SUBDOMAIN2 << "." << SUBDOMAIN1 << "." << SUBDOMAIN1 << "." << SUBDOMAIN1 << "."
+        os << std::setfill( '0' ) << std::hex << std::setw( 8 ) << time( nullptr ) << "."
+           << SUBDOMAIN2 << "." << SUBDOMAIN1 << "." << SUBDOMAIN1 << "." << SUBDOMAIN1 << "."
            << query_question.mDomainname;
 
         dns::ResourceRecord answer;
@@ -162,7 +163,8 @@ private:
             dns::ResourceRecord answer2;
 
             std::ostringstream os2;
-            os2 << std::setfill( '0' ) << std::setw( 16 ) << index;
+            os2 << std::setfill( '0' ) << std::hex << std::setw( 16 ) << index << "."
+                << os.str();
             index++;
             answer2.mDomainname = os2.str();
             answer2.mType       = dns::TYPE_CNAME;
