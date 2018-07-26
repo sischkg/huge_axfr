@@ -6,17 +6,6 @@
 
 const int          TTL                 = 600;
 const unsigned int PERIOD_MICRO_SECOND = 10;
-const char *       RESPONSE_A          = "192.168.0.1";
-
-const std::string SUBDOMAIN1 = "1234567890"
-                               "2234567890"
-                               "3234567890"
-                               "4234567890"
-                               "5234567890"
-                               "6234567890";
-const std::string SUBDOMAIN2 = "1234567890"
-                               "2234567890"
-                               "3234567890";
 
 class NSECAXFRServer : public dns::DNSServer
 {
@@ -88,14 +77,6 @@ private:
         answer2.mTTL        = TTL;
         answer2.mRData      = dns::RDATAPtr( new dns::RecordNS( "www." + getQName( query ).toString() ) );
         response.pushAnswerSection( answer2 );
-
-        dns::ResourceRecord answer3;
-        answer3.mDomainname = "www." + getQName( query ).toString();
-        answer3.mType       = dns::TYPE_A;
-        answer3.mClass      = dns::CLASS_IN;
-        answer3.mTTL        = TTL;
-        answer3.mRData      = dns::RDATAPtr( new dns::RecordA( RESPONSE_A ) );
-        response.pushAnswerSection( answer3 );
 
         setMessageHeader( response, query.mID );
 
