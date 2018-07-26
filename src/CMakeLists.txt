@@ -11,9 +11,11 @@ add_library( dnsserver dns_server.cpp )
 set( CLIENT_LIBRARY boost_program_options boost_thread boost_system dns ipv4 ${OPENSSL_CRYPTO_LIBRARY} )
 set( SERVER_LIBRARY dnsserver threadpool ${CLIENT_LIBRARY} )
 
-add_executable( axfr_server axfr_server.cpp )
-add_executable( notify      notify.cpp )
+add_executable( axfr_server      axfr_server.cpp )
+add_executable( nsec_axfr_server nsec_axfr_server.cpp )
+add_executable( notify           notify.cpp )
 
-target_link_libraries( axfr_server ${SERVER_LIBRARY} )
-target_link_libraries( notify      ${CLIENT_LIBRARY} )
+target_link_libraries( axfr_server      ${SERVER_LIBRARY} )
+target_link_libraries( nsec_axfr_server ${SERVER_LIBRARY} )
+target_link_libraries( notify           ${CLIENT_LIBRARY} )
 
