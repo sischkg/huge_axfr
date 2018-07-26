@@ -302,7 +302,7 @@ namespace dns
     {
         os << "ID: "                  << packet.mID << std::endl
            << "Query/Response: "      << ( packet.mQueryResponse == 0 ? "Query" : "Response" ) << std::endl
-           << "OpCode:"               << packet.mOpcode << std::endl
+           << "OpCode:"               << (unsigned int)packet.mOpcode << std::endl
            << "Authoritative Answer:" << packet.mAuthoritativeAnswer << std::endl
            << "Truncation: "          << packet.mTruncation << std::endl
            << "Recursion Desired: "   << packet.mRecursionDesired << std::endl
@@ -507,7 +507,7 @@ namespace dns
     {
         os << "ID: "                   << res.mID << std::endl
            << "Query/Response: "       << ( res.mQueryResponse ? "Response" : "Query" ) << std::endl
-           << "OpCode:"                << res.mOpcode  << std::endl
+           << "OpCode: "               << (unsigned int)res.mOpcode  << std::endl
            << "Authoritative Answer: " << res.mAuthoritativeAnswer << std::endl
            << "Truncation: "           << res.mTruncation << std::endl
            << "Recursion Desired: "    << res.mRecursionDesired << std::endl
