@@ -68,7 +68,7 @@ www.example.com.        600     IN      A       192.168.0.1
 Start axfr_server which generates finit size zone data.
 
 ```
-$ ./bin/axfr_server --port 10053 -c 1000
+$ ./bin/axfr_server --port 1053 -c 1000
 ```
 
 Receive zone via AXFR.
